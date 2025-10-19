@@ -1,4 +1,4 @@
-﻿# DesafioMauricio
+# DesafioMauricio
 
 API ASP.NET Core 8 (C# 12) para gestão de Clientes. Estruturada com camadas Controller -> Service -> Repository -> Data Store (InMemory) e diagramas arquiteturais (C4 + UML) em PlantUML.
 
@@ -53,6 +53,18 @@ Arquivos PlantUML em `Docs/diagrams`. Exportar PNGs:
 plantuml -tpng Docs/diagrams/c4/*.puml
 plantuml -tpng Docs/diagrams/uml/*.puml
 ```
+
+## Arquitetura
+Para detalhes completos sobre a arquitetura do projeto, decisões de design e diagramas visuais, consulte:
+
+📋 **[Documentação de Arquitetura](Docs/architecture.md)**
+
+Este documento inclui:
+- Visão geral da arquitetura em camadas
+- Diagramas C4 (System Context, Container, Components)
+- Diagramas UML (Class, Sequence, Deployment)
+- Decisões de projeto e justificativas técnicas
+- Mapeamento código x componentes
 
 ## Evolução Futura
 - Persistência real (EF Core)
