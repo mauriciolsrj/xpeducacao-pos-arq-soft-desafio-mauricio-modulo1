@@ -62,21 +62,21 @@ Os PNGs resultantes devem ficar ao lado dos arquivos .puml.
 ### Diagramas C4 (Arquitetura)
 
 #### System Context
-![C4 System Context](diagrams/c4-system.jpg)
+![C4 System Context](c4-system.jpg)
 
 #### Container
-![C4 Container](diagrams/c4-container.jpg)
+![C4 Container](c4-container.jpg)
 
 #### Components
-![C4 Components](diagrams/c4-components.jpg)
+![C4 Components](c4-components.jpg)
 
 ### Diagramas UML
 
 #### Class Diagram
-![UML Class Diagram](diagrams/uml-class.jpg)
+![UML Class Diagram](uml-class.jpg)
 
 #### Sequence Diagram
-![UML Sequence Diagram](diagrams/uml-sequence.jpg)
+![UML Sequence Diagram](uml-sequence.jpg)
 
 #### Deployment Diagram
-![UML Deployment Diagram](diagrams/uml-deployment.jpg)
+![UML Deployment Diagram](uml-deployment.jpg)
