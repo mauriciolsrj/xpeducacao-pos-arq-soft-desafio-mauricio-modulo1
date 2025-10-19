@@ -1,7 +1,7 @@
 @startuml deployment
 skinparam style strictuml
 
-node "Ambiente de Execução" {
+node "Ambiente de ExecuÃ§Ã£o" {
   node "Container Docker / App Service" {
     component "DesafioMauricio API" as Api {
       [ClientesController]
@@ -13,11 +13,11 @@ node "Ambiente de Execução" {
   node "Cliente HTTP" as Client
 }
 
-Client --> Api : Requisições HTTPS
-Api --> Store : Operações CRUD em memória
+Client --> Api : RequisiÃ§Ãµees HTTPS
+Api --> Store : OperaÃ§Ãµes CRUD em memÃ³ria
 
 ' Futuro: Banco de Dados
 node "Banco Relacional (Futuro)" as Db
-Api ..> Db : Migração futura
+Api ..> Db : MigraÃ§Ã£o futura
 
 @enduml

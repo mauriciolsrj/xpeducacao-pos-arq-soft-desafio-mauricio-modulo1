@@ -2,41 +2,41 @@
 
 Data: 2025-10-17
 
-## Vis„o Geral
-API ASP.NET Core 8 estruturada em camadas (Controller -> Service -> Repository -> Data Store) aplicando princÌpios de separaÁ„o de responsabilidades, injeÁ„o de dependÍncias e simplicidade para um domÌnio reduzido (Cliente).
+## Vis√£o Geral
+API ASP.NET Core 8 estruturada em camadas (Controller -> Service -> Repository -> Data Store) aplicando princ√≠pios de separa√ß√£o de responsabilidades, inje√ß√£o de depend√™ncias e simplicidade para um dom√≠nio reduzido (Cliente).
 
 ## Camadas
 - Controllers: Interface HTTP REST.
-- Services: Regras de negÛcio e validaÁ„o.
-- Repositories: AbstraÁ„o de acesso a dados.
-- Data: Armazenamento em memÛria centralizado.
-- Models: Entidades de domÌnio.
+- Services: Regras de neg√≥cio e valida√ß√£o.
+- Repositories: Abstra√ß√£o de acesso a dados.
+- Data: Armazenamento em mem√≥ria centralizado.
+- Models: Entidades de dom√≠nio.
 
 ## Diagrama C4
-1. System Context (system.c4.puml): posiciona a API dentro do ecossistema, mostrando usu·rios e sistemas externos que interagem ou interagir„o.
-2. Container (container.c4.puml): detalha a API como container principal, storage em memÛria e possÌvel banco futuro.
+1. System Context (system.c4.puml): posiciona a API dentro do ecossistema, mostrando usu√°rios e sistemas externos que interagem ou interagir√£o.
+2. Container (container.c4.puml): detalha a API como container principal, storage em mem√≥ria e poss√≠vel banco futuro.
 3. Components (components.c4.puml): mostra componentes internos (Controller, Service, Repository, DataStore, Model) e relacionamentos.
 
 ## UML
-1. Class (class.puml): classes e interfaces principais, dependÍncias e responsabilidades.
-2. Sequence (sequence.puml): fluxo de criaÁ„o de Cliente evidenciando validaÁ„o no service e persistÍncia no repository.
-3. Deployment (deployment.puml): topologia de execuÁ„o (container em nuvem / local) e possÌvel evoluÁ„o para banco relacional.
+1. Class (class.puml): classes e interfaces principais, depend√™ncias e responsabilidades.
+2. Sequence (sequence.puml): fluxo de cria√ß√£o de Cliente evidenciando valida√ß√£o no service e persist√™ncia no repository.
+3. Deployment (deployment.puml): topologia de execu√ß√£o (container em nuvem / local) e poss√≠vel evolu√ß√£o para banco relacional.
 
-## Decisıes de Projeto
+## Decis√µes de Projeto
 - Repository Pattern: permite trocar InMemory por banco real sem afetar camadas superiores.
-- InMemoryDataStore est·tico: simplicidade para challenge, com lock para garantir seguranÁa em cen·rios concorrentes.
-- Service Layer: centraliza validaÁıes (nome e email) e evita duplicaÁ„o em controllers.
-- DI Lifetime: Repository como Singleton para manter estado; Service Scoped para alinhamento com escopo de request; DataStore est·tico para simplificar.
-- PlantUML: favorece versionamento de diagramas como cÛdigo.
+- InMemoryDataStore est√°tico: simplicidade para challenge, com lock para garantir seguran√ßa em cen√°rios concorrentes.
+- Service Layer: centraliza valida√ß√µes (nome e email) e evita duplica√ß√£o em controllers.
+- DI Lifetime: Repository como Singleton para manter estado; Service Scoped para alinhamento com escopo de request; DataStore est√°tico para simplificar.
+- PlantUML: favorece versionamento de diagramas como c√≥digo.
 
-## EvoluÁ„o Futura
-- Substituir InMemory por EF Core + migraÁıes.
-- Adicionar autenticaÁ„o/authorization (JWT / OAuth2).
-- Observabilidade: logging estruturado e mÈtricas Prometheus.
-- PaginaÁ„o e filtros avanÁados nas consultas.
+## Evolu√ß√£o Futura
+- Substituir InMemory por EF Core + migra√ß√µes.
+- Adicionar autentica√ß√£o/authorization (JWT / OAuth2).
+- Observabilidade: logging estruturado e m√©tricas Prometheus.
+- Pagina√ß√£o e filtros avan√ßados nas consultas.
 
-## Mapeamento CÛdigo x Componentes
-| Componente | CÛdigo |
+## Mapeamento C√≥digo x Componentes
+| Componente | C√≥digo |
 |-----------|--------|
 | Controller | Controllers/ClientesController.cs |
 | Service | Services/ClienteService.cs |
@@ -44,8 +44,8 @@ API ASP.NET Core 8 estruturada em camadas (Controller -> Service -> Repository -
 | Data Store | Data/InMemoryDataStore.cs |
 | Domain Model | Models/Cliente.cs |
 
-## ExportaÁ„o de Diagramas
-Utilize extens„o VS Code PlantUML ou CLI:
+## Exporta√ß√£o de Diagramas
+Utilize extens√£o VS Code PlantUML ou CLI:
 ```
 plantuml -tpng Docs/diagrams/c4/*.puml
 plantuml -tpng Docs/diagrams/uml/*.puml
@@ -53,6 +53,30 @@ plantuml -tpng Docs/diagrams/uml/*.puml
 Os PNGs resultantes devem ficar ao lado dos arquivos .puml.
 
 ## Qualidade
-- ValidaÁıes explÌcitas
-- CÛdigo comentado e organizado
-- Pronto para expans„o
+- Valida√ß√µes expl√≠citas
+- C√≥digo comentado e organizado
+- Pronto para expans√£o
+
+## Diagramas Visuais
+
+### Diagramas C4 (Arquitetura)
+
+#### System Context
+![C4 System Context](diagrams/c4-system.jpg)
+
+#### Container
+![C4 Container](diagrams/c4-container.jpg)
+
+#### Components
+![C4 Components](diagrams/c4-components.jpg)
+
+### Diagramas UML
+
+#### Class Diagram
+![UML Class Diagram](diagrams/uml-class.jpg)
+
+#### Sequence Diagram
+![UML Sequence Diagram](diagrams/uml-sequence.jpg)
+
+#### Deployment Diagram
+![UML Deployment Diagram](diagrams/uml-deployment.jpg)
