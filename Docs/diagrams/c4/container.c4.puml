@@ -1,0 +1,18 @@
+@startuml container.c4
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(usuario, "Usuário")
+System_Boundary(boundary, "DesafioMauricio") {
+  Container(api, "Web API", "ASP.NET Core 8", "Exposição de endpoints REST /api/clientes")
+  ContainerDb(memstore, "InMemory Store", "List<Cliente>", "Armazenamento volátil em memória")
+  ContainerDb(dbFuturo, "Banco Relacional (Futuro)", "SQL Server/PostgreSQL", "Persistê ncia definitiva planejada")
+}
+
+Rel(usuario, api, "HTTP/JSON")
+Rel(api, memstore, "CRUD", "Repository Pattern")
+Rel_L(api, dbFuturo, "Migração futura")
+
+SHOW_LEGEND()
+@enduml

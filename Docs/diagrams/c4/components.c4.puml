@@ -1,0 +1,20 @@
+@startuml components.c4
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_WITH_LEGEND()
+
+Container_Boundary(api, "API Clientes (.NET 8)") {
+  Component(controller, "ClientesController", "ASP.NET Controller", "Recebe requisições HTTP e retorna respostas")
+  Component(service, "ClienteService", "Service", "Regras de negócio e validações")
+  Component(repository, "ClienteRepository", "Repository", "Acesso a dados em memória")
+  Component(dataStore, "InMemoryDataStore", "Data Store", "Lista estática de Clientes + controle de Id")
+  Component(model, "Cliente", "Domain Model", "Entidade de domínio")
+}
+
+Rel(controller, service, "Chama métodos de negócio")
+Rel(service, repository, "Orquestra operações CRUD")
+Rel(repository, dataStore, "Atualização e leitura")
+Rel(service, model, "Instancia/valida")
+
+SHOW_LEGEND()
+@enduml

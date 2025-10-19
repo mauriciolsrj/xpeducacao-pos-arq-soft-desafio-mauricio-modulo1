@@ -1,0 +1,48 @@
+@startuml class
+skinparam style strictuml
+
+class Cliente {
+  +int Id
+  +string Nome
+  +string Email
+}
+
+interface IClienteRepository {
+  +IEnumerable<Cliente> GetAll()
+  +Cliente GetById(int id)
+  +IEnumerable<Cliente> GetByNome(string nome)
+  +int Count()
+  +Cliente Add(Cliente cliente)
+  +bool Update(Cliente cliente)
+  +bool Delete(int id)
+}
+
+class ClienteRepository implements IClienteRepository
+class ClienteService {
+  -IClienteRepository _repository
+  +IEnumerable<Cliente> ListarTodos()
+  +Cliente ObterPorId(int id)
+  +IEnumerable<Cliente> BuscarPorNome(string nome)
+  +int Contar()
+  +Cliente Criar(Cliente cliente)
+  +bool Atualizar(int id, Cliente cliente)
+  +bool Remover(int id)
+}
+
+class ClientesController {
+  -ClienteService _service
+}
+
+class InMemoryDataStore <<static>> {
+  +List<Cliente> Clientes
+  +int NextId
+  +object LockObj
+  +void Reset()
+}
+
+ClientesController --> ClienteService
+ClienteService --> IClienteRepository
+ClienteRepository --> InMemoryDataStore
+IClienteRepository --> Cliente
+ClienteService --> Cliente
+@enduml

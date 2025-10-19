@@ -1,0 +1,19 @@
+@startuml sequence
+skinparam style strictuml
+actor User
+participant ClientesController as Controller
+participant ClienteService as Service
+participant ClienteRepository as Repository
+participant InMemoryDataStore as Store
+
+== Fluxo POST /api/clientes ==
+User -> Controller : POST /api/clientes (Cliente JSON)
+Controller -> Service : Criar(cliente)
+Service -> Service : Validar(cliente)
+Service -> Repository : Add(cliente)
+Repository -> Store : Adiciona na lista
+Store --> Repository : Cliente persistido (Id atribuído)
+Repository --> Service : Cliente criado
+Service --> Controller : Cliente criado
+Controller --> User : 201 Created (Location header)
+@enduml

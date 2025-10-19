@@ -1,0 +1,18 @@
+@startuml system.c4
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(usuario, "Usuário", "Usuário interno que consome a API de Clientes")
+Person(parceiro, "Parceiro", "Sistemas parceiros que vão integrar futuramente")
+System(sistemaVendas, "Sistema de Vendas", "Origem de eventos que podem criar clientes")
+System_Boundary(apiBoundary, "DesafioMauricio API") {
+    System(apiClientes, "API Clientes", "Web API .NET 8 para CRUD de clientes")
+}
+
+Rel(usuario, apiClientes, "Consome via HTTP/JSON")
+Rel(parceiro, apiClientes, "Integra via HTTP (futuro)")
+Rel(sistemaVendas, apiClientes, "Dispara criação/consulta (futuro)")
+
+SHOW_LEGEND()
+@enduml
